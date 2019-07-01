@@ -1,0 +1,24 @@
+{
+  "name": "@yoody/behaviour-tree",
+  "version": "0.0.1",
+  "description": "Behaviour tree typescript implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "BT",
+    "behaviour-tree",
+    "ai",
+    "game-ai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^2.7.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.18.2",
+    "tslint": "^5.18.0"
+  }
+}
