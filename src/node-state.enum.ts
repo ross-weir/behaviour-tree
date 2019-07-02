@@ -1,5 +1,5 @@
 export enum NodeState {
-  Failed,
-  Running,
-  Success,
+  Failure = "FAILURE",
+  Running = "RUNNING",
+  Success = "SUCCESS",
 }

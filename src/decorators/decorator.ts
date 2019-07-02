@@ -1,10 +1,7 @@
 import {Node} from "../node";
 
-export abstract class Decorator extends Node {
-  child_: Node;
-
-  constructor(child: Node) {
+export abstract class DecoratorNode extends Node {
+  constructor(public readonly child: Node) {
     super();
-    this.child_ = child;
   }
 }

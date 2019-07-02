@@ -1,10 +1,7 @@
 import {Node} from "../node";
 
-export abstract class Composite extends Node {
-  children_: Node[];
-
-  constructor(children: Node[]) {
+export abstract class CompositeNode extends Node {
+  constructor(public readonly children: Node[]) {
     super();
-    this.children_ = children;
   }
 }

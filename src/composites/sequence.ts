@@ -1,12 +1,13 @@
 import {NodeState} from "../node-state.enum";
-import {Composite} from "./composite";
+import {CompositeNode} from "./composite";
+import {IBlackboard} from "../blackboard";
 
-export class Sequence extends Composite {
-  tick() {
-    for (const node of this.children_) {
-      const state = node.tick();
+export class SequenceNode extends CompositeNode {
+  tick(bb: IBlackboard) {
+    for (const node of this.children) {
+      const state = node.tick(bb);
 
-      if (state === NodeState.Failed || state === NodeState.Running) {
+      if (state === NodeState.Failure || state === NodeState.Running) {
         return state;
       }
     }
