@@ -1,5 +1,5 @@
-import {LeafNode} from "./leaf-node";
 import {IBlackboard} from "../blackboard";
+import {LeafNode} from "./leaf-node";
 
 /**
  * ActionNodes are used to implement a client defined action.
