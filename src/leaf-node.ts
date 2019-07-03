@@ -1,10 +1,10 @@
+import {IBlackboard} from "./blackboard";
 import {
   ConditionNodeCallback,
   LeafNodeCallback,
 } from "./leaf-node-callback.type";
 import {Node} from "./node";
 import {NodeState} from "./node-state.enum";
-import {IBlackboard} from "./blackboard";
 
 /**
  * Base LeafNode class.
@@ -16,7 +16,7 @@ abstract class LeafNode<T = LeafNodeCallback> extends Node {
     super();
   }
 
-  abstract tick(bb: IBlackboard): NodeState;
+  public abstract tick(bb: IBlackboard): NodeState;
 }
 
 /**
@@ -24,7 +24,7 @@ abstract class LeafNode<T = LeafNodeCallback> extends Node {
  * These client defined actions could include moving an entity to a location.
  */
 export class ActionNode extends LeafNode {
-  tick(bb: IBlackboard) {
+  public tick(bb: IBlackboard) {
     return this.action(bb);
   }
 }
@@ -35,7 +35,7 @@ export class ActionNode extends LeafNode {
  * then the node returns `NodeState.Failure`.
  */
 export class ConditionNode extends LeafNode<ConditionNodeCallback> {
-  tick(bb: IBlackboard) {
+  public tick(bb: IBlackboard) {
     return this.action(bb) ? NodeState.Success : NodeState.Failure;
   }
 }

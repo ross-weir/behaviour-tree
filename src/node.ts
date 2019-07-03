@@ -1,9 +1,9 @@
-import {NodeState} from "./node-state.enum";
 import {IBlackboard} from "./blackboard";
+import {NodeState} from "./node-state.enum";
 
 /**
  * Base class that all nodes inherit from.
  */
 export abstract class Node {
-  abstract tick(bb: IBlackboard): NodeState;
+  public abstract tick(bb: IBlackboard): NodeState;
 }
