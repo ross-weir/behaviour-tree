@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "tslint --config tslint.json src/**/*.ts",
     "test": "jest",
-    "test:cov": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:cov": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "build:doc": "typedoc --out docs /src"
   },
   "keywords": [
     "BT",
