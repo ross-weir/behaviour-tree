@@ -4,13 +4,16 @@ import {CompositeNode} from "./composite";
 
 export class SequenceNode extends CompositeNode {
   public tick(bb: IBlackboard) {
-    for (const node of this.children) {
+    do {
+      const node = this.nodeIterator.current;
       const state = node.tick(bb);
 
       if (state === NodeState.Failure || state === NodeState.Running) {
         return state;
       }
-    }
+    } while (this.nodeIterator.next());
+
+    this.nodeIterator.reset();
 
     return NodeState.Success;
   }
