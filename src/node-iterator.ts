@@ -1,23 +1,23 @@
 import {Node} from "./node";
 
-export class NodeIterator implements Iterable<Node> {
+export class NodeIterator<Collection = Node> implements Iterable<Collection> {
   private currentPointer = 0;
 
-  constructor(private nodes: Node[]) {}
+  constructor(private collection: Collection[]) {}
 
   private incrementPointer() {
     this.currentPointer++;
   }
 
   private get hasNext() {
-    return !!this.nodes[this.currentPointer + 1];
+    return !!this.collection[this.currentPointer + 1];
   }
 
-  public [Symbol.iterator](): Iterator<Node> {
+  public [Symbol.iterator](): Iterator<Collection> {
     const self = this;
 
     return {
-      next(): IteratorResult<Node> {
+      next(): IteratorResult<Collection> {
         if (self.hasNext) {
           self.incrementPointer();
           return {done: false, value: self.current};
@@ -29,7 +29,7 @@ export class NodeIterator implements Iterable<Node> {
   }
 
   public get current() {
-    return this.nodes[this.currentPointer];
+    return this.collection[this.currentPointer];
   }
 
   public next() {
