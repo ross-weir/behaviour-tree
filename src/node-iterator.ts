@@ -5,22 +5,12 @@ export class NodeIterator<Collection = Node> implements Iterable<Collection> {
 
   constructor(private collection: Collection[]) {}
 
-  private incrementPointer() {
-    this.currentPointer++;
-  }
-
-  private get hasNext() {
-    return !!this.collection[this.currentPointer + 1];
-  }
-
   public [Symbol.iterator](): Iterator<Collection> {
-    const self = this;
-
     return {
-      next(): IteratorResult<Collection> {
-        if (self.hasNext) {
-          self.incrementPointer();
-          return {done: false, value: self.current};
+      next: (): IteratorResult<Collection> => {
+        if (this.hasNext) {
+          this.incrementPointer();
+          return {done: false, value: this.current};
         }
 
         return {done: true, value: null};
@@ -44,5 +34,13 @@ export class NodeIterator<Collection = Node> implements Iterable<Collection> {
 
   public reset() {
     this.currentPointer = 0;
+  }
+
+  private incrementPointer() {
+    this.currentPointer++;
+  }
+
+  private get hasNext() {
+    return !!this.collection[this.currentPointer + 1];
   }
 }
