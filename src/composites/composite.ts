@@ -4,7 +4,7 @@ import {NodeIterator} from "../node-iterator";
 import {NodeState} from "../node-state.enum";
 
 export abstract class CompositeNode extends Node {
-  protected nodeIterator: NodeIterator;
+  private nodeIterator: NodeIterator;
 
   constructor(protected readonly children: Node[]) {
     super();
