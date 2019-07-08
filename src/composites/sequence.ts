@@ -1,20 +1,12 @@
-import {IBlackboard} from "../blackboard";
 import {NodeState} from "../node-state.enum";
 import {CompositeNode} from "./composite";
 
 export class SequenceNode extends CompositeNode {
-  public tick(bb: IBlackboard) {
-    do {
-      const node = this.nodeIterator.current;
-      const state = node.tick(bb);
+  protected shouldReturnState(state: NodeState): boolean {
+    return state === NodeState.Failure || state === NodeState.Running;
+  }
 
-      if (state === NodeState.Failure || state === NodeState.Running) {
-        return state;
-      }
-    } while (this.nodeIterator.next());
-
-    this.nodeIterator.reset();
-
+  protected get defaultResult() {
     return NodeState.Success;
   }
 }
