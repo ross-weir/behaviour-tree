@@ -1,2 +1,2 @@
 export * from "./sequence";
-export * from "./sequence";
+export * from "./selector";
