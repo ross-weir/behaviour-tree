@@ -29,7 +29,7 @@ describe("SelectorNode", () => {
       ]);
 
       expect(selector.tick(blackBoard)).toBe(NodeState.Success);
-      expect(mockAction.mock.calls.length).toBe(0);
+      expect(mockAction).not.toBeCalled();
     });
   });
 });
