@@ -1,5 +1,5 @@
 const config = {
-  "*.ts": ["tslint --config tslint.json --fix", "prettier --write", "git add"],
+  "*.ts": ["prettier --write", "tslint --config tslint.json --fix", "git add"],
 };
 
 module.exports = config;

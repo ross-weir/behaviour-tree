@@ -2,10 +2,10 @@ import {IBlackboard} from "../blackboard";
 import {NodeState} from "../node-state.enum";
 import {DecoratorNode} from "./decorator";
 
-export class RepeaterNode extends DecoratorNode {
+export class RepeatUntilFailureNode extends DecoratorNode {
   public tick(bb: IBlackboard) {
-    this.child.tick(bb);
+    const state = this.child.tick(bb);
 
-    return NodeState.Running;
+    return state === NodeState.Failure ? state : NodeState.Running;
   }
 }

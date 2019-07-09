@@ -5,8 +5,8 @@ import {NodeState} from "../../src/node-state.enum";
 
 const blackBoard: IBlackboard = {state: {}};
 
-describe("InverterNode", () => {
-  describe("Simple inverters", () => {
+describe("SucceederNode", () => {
+  describe("Simple succeeders", () => {
     it("should return NodeState.Success if child returns NodeState.Failure", () => {
       const action = new SucceederNode(new ActionNode(() => NodeState.Failure));
 
