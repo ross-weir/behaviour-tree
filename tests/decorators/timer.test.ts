@@ -21,7 +21,6 @@ describe("TimerNode", () => {
       jest.runAllTimers();
 
       expect(action.tick(blackBoard)).toBe(NodeState.Success);
-      expect(mockAction).toBeCalled();
       expect(mockAction).toHaveBeenCalledTimes(1);
     });
   });
