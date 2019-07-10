@@ -15,7 +15,11 @@
     "ai",
     "game-ai"
   ],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ross-weir/behaviour-tree"
+  },
+  "author": "ross-weir",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^24.0.15",
