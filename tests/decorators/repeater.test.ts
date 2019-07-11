@@ -1,9 +1,9 @@
-import {IBlackboard} from "../../src/blackboard";
+import {BaseBlackboard} from "../../src/blackboard";
 import {RepeaterNode} from "../../src/decorators";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {state: {}};
+const blackBoard: BaseBlackboard = {state: {}};
 
 describe("RepeaterNode", () => {
   describe("Simple repeaters", () => {

@@ -1,4 +1,4 @@
-import {IBlackboard} from "../blackboard";
+import {BaseBlackboard} from "../blackboard";
 import {Node} from "../node";
 import {NodeState} from "../node-state.enum";
 
@@ -13,7 +13,7 @@ export class TimerNode extends Node {
     super();
   }
 
-  public tick(bb: IBlackboard) {
+  public tick(bb: BaseBlackboard) {
     if (!this.timerHandle) {
       this.setTimer();
     }

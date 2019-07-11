@@ -1,4 +1,4 @@
-import {IBlackboard} from "../blackboard";
+import {BaseBlackboard} from "../blackboard";
 import {LeafNodeCallback} from "../leaf-node-callback.type";
 import {Node} from "../node";
 import {NodeState} from "../node-state.enum";
@@ -13,5 +13,5 @@ export abstract class LeafNode<T = LeafNodeCallback> extends Node {
     super();
   }
 
-  public abstract tick(bb: IBlackboard): NodeState;
+  public abstract tick(bb: BaseBlackboard): NodeState;
 }

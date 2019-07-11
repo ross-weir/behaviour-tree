@@ -1,4 +1,4 @@
-import {IBlackboard} from "../blackboard";
+import {BaseBlackboard} from "../blackboard";
 import {Node} from "../node";
 import {NodeIterator} from "../node-iterator";
 import {NodeState} from "../node-state.enum";
@@ -11,7 +11,7 @@ export abstract class CompositeNode extends Node {
     this.nodeIterator = new NodeIterator(children);
   }
 
-  public tick(bb: IBlackboard) {
+  public tick(bb: BaseBlackboard) {
     do {
       const node = this.nodeIterator.current;
       const state = node.tick(bb);
