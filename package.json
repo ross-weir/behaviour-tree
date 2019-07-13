@@ -2,8 +2,10 @@
   "name": "@yoody/behaviour-tree",
   "version": "0.0.1",
   "description": "Behaviour tree typescript implementation",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc --build",
     "lint": "tslint --config tslint.json src/**/*.ts",
     "test": "jest",
     "test:cov": "jest --coverage --coverageReporters=text-lcov | coveralls",
