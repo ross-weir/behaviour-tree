@@ -1,7 +1,3 @@
-interface ILooseObject {
-  [key: string]: any;
-}
-
 export interface IBlackboard {
-  state: ILooseObject;
+  [key: string]: any;
 }

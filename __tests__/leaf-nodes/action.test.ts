@@ -2,7 +2,7 @@ import {IBlackboard} from "../../src/blackboard";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {state: {}};
+const blackBoard: IBlackboard = {};
 
 describe("ActionNode", () => {
   it("should return the result of the callback", () => {

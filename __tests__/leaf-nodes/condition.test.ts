@@ -2,7 +2,7 @@ import {ConditionNode} from "../../src/leaf-nodes";
 import {IBlackboard} from "../../src/blackboard";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {state: {}};
+const blackBoard: IBlackboard = {};
 
 describe("ConditionNode", () => {
   it("should return NodeState.Success if action returns true", () => {

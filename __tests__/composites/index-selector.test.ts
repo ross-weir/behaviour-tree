@@ -3,7 +3,7 @@ import {IndexSelectorNode} from "../../src/composites";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {state: {}};
+const blackBoard: IBlackboard = {};
 
 describe("IndexSelectorNode", () => {
   describe("Simple index selectors", () => {

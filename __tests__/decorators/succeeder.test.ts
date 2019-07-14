@@ -3,7 +3,7 @@ import {SucceederNode} from "../../src/decorators";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {state: {}};
+const blackBoard: IBlackboard = {};
 
 describe("SucceederNode", () => {
   describe("Simple succeeders", () => {
