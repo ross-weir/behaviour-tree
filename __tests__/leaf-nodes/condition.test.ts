@@ -1,5 +1,5 @@
-import {ConditionNode} from "../../src/leaf-nodes";
 import {Blackboard} from "../../src/blackboard";
+import {ConditionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
 const blackBoard: Blackboard = new Blackboard();
