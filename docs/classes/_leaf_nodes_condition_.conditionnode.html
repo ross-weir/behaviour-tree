@@ -76,7 +76,7 @@
 							action returns <code>true</code>. If the client defined action returns <code>false</code>
 						then the node returns <a href="../enums/_node_state_enum_.nodestate.html#failure">NodeState.Failure</a>.</p>
 					</div>
-					<pre><code class="language-ts"><span class="hljs-keyword">const</span> conditionCheck = <span class="hljs-keyword">new</span> ConditionNode(<span class="hljs-function">(<span class="hljs-params">bb: IBlackboard</span>) =&gt;</span> {
+					<pre><code class="language-ts"><span class="hljs-keyword">const</span> conditionCheck = <span class="hljs-keyword">new</span> ConditionNode(<span class="hljs-function">(<span class="hljs-params">bb: Blackboard</span>) =&gt;</span> {
   <span class="hljs-keyword">return</span> unit.inRange(bb.otherUnit.location);
 })</code></pre>
 				</div>
@@ -166,7 +166,7 @@
 					<a name="tick" class="tsd-anchor"></a>
 					<h3>tick</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">tick<span class="tsd-signature-symbol">(</span>bb<span class="tsd-signature-symbol">: </span><a href="../interfaces/_blackboard_.iblackboard.html" class="tsd-signature-type">IBlackboard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_node_state_enum_.nodestate.html#failure" class="tsd-signature-type">Failure</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_node_state_enum_.nodestate.html#success" class="tsd-signature-type">Success</a></li>
+						<li class="tsd-signature tsd-kind-icon">tick<span class="tsd-signature-symbol">(</span>bb<span class="tsd-signature-symbol">: </span><a href="../interfaces/_blackboard_.Blackboard.html" class="tsd-signature-type">Blackboard</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_node_state_enum_.nodestate.html#failure" class="tsd-signature-type">Failure</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_node_state_enum_.nodestate.html#success" class="tsd-signature-type">Success</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -179,7 +179,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>bb: <a href="../interfaces/_blackboard_.iblackboard.html" class="tsd-signature-type">IBlackboard</a></h5>
+									<h5>bb: <a href="../interfaces/_blackboard_.Blackboard.html" class="tsd-signature-type">Blackboard</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_node_state_enum_.nodestate.html#failure" class="tsd-signature-type">Failure</a>

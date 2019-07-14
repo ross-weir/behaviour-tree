@@ -1,5 +1,5 @@
-import {IBlackboard} from "./blackboard";
+import {Blackboard} from "./blackboard";
 import {NodeState} from "./node-state.enum";
 
-export type LeafNodeCallback = (bb: IBlackboard) => NodeState;
-export type ConditionNodeCallback = (bb: IBlackboard) => boolean;
+export type LeafNodeCallback = (bb: Blackboard) => NodeState;
+export type ConditionNodeCallback = (bb: Blackboard) => boolean;

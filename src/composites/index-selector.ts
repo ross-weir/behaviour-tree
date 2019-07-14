@@ -1,4 +1,4 @@
-import {IBlackboard} from "../blackboard";
+import {Blackboard} from "../blackboard";
 import {Node} from "../node";
 
 export class IndexSelectorNode extends Node {
@@ -9,7 +9,7 @@ export class IndexSelectorNode extends Node {
     super();
   }
 
-  public tick(bb: IBlackboard) {
+  public tick(bb: Blackboard) {
     return this.children[this.childIndex()].tick(bb);
   }
 }

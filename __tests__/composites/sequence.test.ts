@@ -1,9 +1,9 @@
-import {IBlackboard} from "../../src/blackboard";
+import {Blackboard} from "../../src/blackboard";
 import {SequenceNode} from "../../src/composites";
 import {ActionNode, ConditionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: IBlackboard = {};
+const blackBoard: Blackboard = new Blackboard();
 
 describe("SequenceNode", () => {
   describe("Simple sequences", () => {

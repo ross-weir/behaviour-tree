@@ -1,4 +1,4 @@
-import {IBlackboard} from "../blackboard";
+import {Blackboard} from "../blackboard";
 import {ConditionNodeCallback} from "../leaf-node-callback.type";
 import {NodeState} from "../node-state.enum";
 import {LeafNode} from "./leaf-node";
@@ -9,13 +9,13 @@ import {LeafNode} from "./leaf-node";
  * then the node returns [[NodeState.Failure]].
  *
  * ```ts
- * const conditionCheck = new ConditionNode((bb: IBlackboard) => {
+ * const conditionCheck = new ConditionNode((bb: Blackboard) => {
  *   return unit.inRange(bb.otherUnit.location);
  * })
  * ```
  */
 export class ConditionNode extends LeafNode<ConditionNodeCallback> {
-  public tick(bb: IBlackboard) {
+  public tick(bb: Blackboard) {
     return this.action(bb) ? NodeState.Success : NodeState.Failure;
   }
 }
