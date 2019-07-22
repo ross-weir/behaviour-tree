@@ -4,6 +4,7 @@ import {NodeIterator} from "../node-iterator";
 import {NodeState} from "../node-state.enum";
 
 export abstract class CompositeNode extends Node {
+  public saveIteration: boolean = false;
   private nodeIterator: NodeIterator;
 
   constructor(protected readonly children: Node[]) {
@@ -17,6 +18,10 @@ export abstract class CompositeNode extends Node {
       const state = node.tick(bb);
 
       if (this.shouldReturnState(state)) {
+        if (!this.saveIteration) {
+          this.nodeIterator.reset();
+        }
+
         return state;
       }
     } while (this.nodeIterator.next());
