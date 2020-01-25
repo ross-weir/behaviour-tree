@@ -1,20 +1,19 @@
-import {Blackboard} from "../../src/blackboard";
 import {SelectorNode} from "../../src/composites";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: Blackboard = new Blackboard();
+import {testBlackboard, TestBlackboard} from "../test-blackboard";
 
 describe("SelectorNode", () => {
   describe("Simple selectors", () => {
     it("should return NodeState.Failure if all leaf nodes fail", () => {
-      const sequence = new SelectorNode([
-        new ActionNode(() => NodeState.Failure),
-        new ActionNode(() => NodeState.Failure),
-        new ActionNode(() => NodeState.Failure),
+      const sequence = new SelectorNode<TestBlackboard>([
+        new ActionNode<TestBlackboard>(() => NodeState.Failure),
+        new ActionNode<TestBlackboard>(() => NodeState.Failure),
+        new ActionNode<TestBlackboard>(() => NodeState.Failure),
       ]);
 
-      expect(sequence.tick(blackBoard)).toBe(NodeState.Failure);
+      expect(sequence.tick(testBlackboard)).toBe(NodeState.Failure);
     });
 
     it("should return NodeState.Success for first success node", () => {
@@ -22,13 +21,13 @@ describe("SelectorNode", () => {
 
       mockAction.mockReturnValue(NodeState.Success);
 
-      const selector = new SelectorNode([
-        new ActionNode(() => NodeState.Failure),
-        new ActionNode(() => NodeState.Success),
-        new ActionNode(mockAction),
+      const selector = new SelectorNode<TestBlackboard>([
+        new ActionNode<TestBlackboard>(() => NodeState.Failure),
+        new ActionNode<TestBlackboard>(() => NodeState.Success),
+        new ActionNode<TestBlackboard>(mockAction),
       ]);
 
-      expect(selector.tick(blackBoard)).toBe(NodeState.Success);
+      expect(selector.tick(testBlackboard)).toBe(NodeState.Success);
       expect(mockAction).not.toBeCalled();
     });
   });

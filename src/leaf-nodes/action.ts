@@ -1,4 +1,3 @@
-import {Blackboard} from "../blackboard";
 import {LeafNode} from "./leaf-node";
 
 /**
@@ -6,14 +5,14 @@ import {LeafNode} from "./leaf-node";
  * These client defined actions could include moving an entity to a location:
  *
  * ```ts
- * const moveAction = new ActionNode((bb: Blackboard) => {
+ * const moveAction = new ActionNode<Blackboard>((bb: Blackboard) => {
  *   unit.moveTo(bb.destination);
  *   return NodeState.Success;
  * })
  * ```
  */
-export class ActionNode extends LeafNode {
-  public tick(bb: Blackboard) {
+export class ActionNode<T> extends LeafNode<T> {
+  public tick(bb: T) {
     return this.action(bb);
   }
 }
