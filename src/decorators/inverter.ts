@@ -1,9 +1,8 @@
-import {Blackboard} from "../blackboard";
 import {NodeState} from "../node-state.enum";
 import {DecoratorNode} from "./decorator";
 
-export class InverterNode extends DecoratorNode {
-  public tick(bb: Blackboard) {
+export class InverterNode<T> extends DecoratorNode<T> {
+  public tick(bb: T) {
     const state = this.child.tick(bb);
 
     if (state === NodeState.Success) {

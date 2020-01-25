@@ -1,6 +1,7 @@
 import {Node} from "./node";
 
-export class NodeIterator<Collection = Node> implements Iterable<Collection> {
+export class NodeIterator<T, Collection = Node<T>>
+  implements Iterable<Collection> {
   private currentPointer = 0;
 
   constructor(private collection: Collection[]) {}

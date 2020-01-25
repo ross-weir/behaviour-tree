@@ -1,17 +1,19 @@
-import {Blackboard} from "../../src/blackboard";
 import {ConditionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
-
-const blackBoard: Blackboard = new Blackboard();
+import {testBlackboard, TestBlackboard} from "../test-blackboard";
 
 describe("ConditionNode", () => {
   it("should return NodeState.Success if action returns true", () => {
-    const conditionNode = new ConditionNode((bb: Blackboard) => true);
-    expect(conditionNode.tick(blackBoard)).toBe(NodeState.Success);
+    const conditionNode = new ConditionNode<TestBlackboard>(
+      (bb: TestBlackboard) => true
+    );
+    expect(conditionNode.tick(testBlackboard)).toBe(NodeState.Success);
   });
 
   it("should return NodeState.Failure if action returns false", () => {
-    const conditionNode = new ConditionNode((bb: Blackboard) => false);
-    expect(conditionNode.tick(blackBoard)).toBe(NodeState.Failure);
+    const conditionNode = new ConditionNode<TestBlackboard>(
+      (bb: TestBlackboard) => false
+    );
+    expect(conditionNode.tick(testBlackboard)).toBe(NodeState.Failure);
   });
 });

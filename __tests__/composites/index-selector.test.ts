@@ -1,20 +1,19 @@
-import {Blackboard} from "../../src/blackboard";
 import {IndexSelectorNode} from "../../src/composites";
 import {ActionNode} from "../../src/leaf-nodes";
 import {NodeState} from "../../src/node-state.enum";
 
-const blackBoard: Blackboard = new Blackboard();
+import {testBlackboard, TestBlackboard} from "../test-blackboard";
 
 describe("IndexSelectorNode", () => {
   describe("Simple index selectors", () => {
     it("should return NodeState of the node index", () => {
-      const sequence = new IndexSelectorNode(() => 1, [
-        new ActionNode(() => NodeState.Failure),
-        new ActionNode(() => NodeState.Success),
-        new ActionNode(() => NodeState.Running),
+      const sequence = new IndexSelectorNode<TestBlackboard>(() => 1, [
+        new ActionNode<TestBlackboard>(() => NodeState.Failure),
+        new ActionNode<TestBlackboard>(() => NodeState.Success),
+        new ActionNode<TestBlackboard>(() => NodeState.Running),
       ]);
 
-      expect(sequence.tick(blackBoard)).toBe(NodeState.Success);
+      expect(sequence.tick(testBlackboard)).toBe(NodeState.Success);
     });
   });
 });

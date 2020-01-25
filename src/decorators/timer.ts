@@ -1,19 +1,18 @@
-import {Blackboard} from "../blackboard";
 import {Node} from "../node";
 import {NodeState} from "../node-state.enum";
 
-export class TimerNode extends Node {
+export class TimerNode<T> extends Node<T> {
   private timerHandle: number = 0;
   private shouldExecute: boolean = false;
 
   constructor(
     private readonly msDelay: number,
-    protected readonly child: Node
+    protected readonly child: Node<T>
   ) {
     super();
   }
 
-  public tick(bb: Blackboard) {
+  public tick(bb: T) {
     if (!this.timerHandle) {
       this.setTimer();
     }

@@ -1,7 +1,7 @@
 import {NodeState} from "../node-state.enum";
 import {CompositeNode} from "./composite";
 
-export class SelectorNode extends CompositeNode {
+export class SelectorNode<T> extends CompositeNode<T> {
   protected shouldReturnState(state: NodeState): boolean {
     return state === NodeState.Success || state === NodeState.Running;
   }

@@ -1,7 +1,7 @@
 import {Node} from "../node";
 
-export abstract class DecoratorNode extends Node {
-  constructor(protected readonly child: Node) {
+export abstract class DecoratorNode<T> extends Node<T> {
+  constructor(protected readonly child: Node<T>) {
     super();
   }
 }
