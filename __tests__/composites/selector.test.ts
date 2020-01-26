@@ -30,5 +30,27 @@ describe("SelectorNode", () => {
       expect(selector.tick(testBlackboard)).toBe(NodeState.Success);
       expect(mockAction).not.toBeCalled();
     });
+
+    it("should call services beforeTick() method", () => {
+      const service = {beforeTick: jest.fn(), afterTick: jest.fn()};
+      const selector = new SelectorNode<TestBlackboard>(
+        [new ActionNode<TestBlackboard>(() => NodeState.Failure)],
+        [service]
+      );
+
+      selector.tick(testBlackboard);
+      expect(service.beforeTick).toBeCalled();
+    });
+
+    it("should call services afterTick() method", () => {
+      const service = {beforeTick: jest.fn(), afterTick: jest.fn()};
+      const selector = new SelectorNode<TestBlackboard>(
+        [new ActionNode<TestBlackboard>(() => NodeState.Failure)],
+        [service]
+      );
+
+      selector.tick(testBlackboard);
+      expect(service.afterTick).toBeCalled();
+    });
   });
 });
